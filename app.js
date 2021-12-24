@@ -1,11 +1,13 @@
 const app = Vue.createApp({
   data() {
     return {
+      url: 'https://www.google.com/?hl=id',
       showBooks: true,
-      title: 'Sebuah Seni Bersikap Bodo Amat',
-      author: 'Mark Manson',
-      publisher: 'Gramedia Indonesia',
-      year: 2016,
+      books: [
+        { title: 'Sebuah Seni Bersikap Bodo Amat', author: 'Mark Manson', publisher: 'Gramedia Indonesia', year: 2016 },
+        { title: 'Koala Kumal', author: 'Raditya Dika', publisher: 'Penerbit Cahaya', year: 2013 },
+        { title: 'Filosofi Kopi', author: 'Dewi Lestari', publisher: 'Visinema', year: 2005 },
+      ],
     };
   },
   methods: {
@@ -14,6 +16,16 @@ const app = Vue.createApp({
     },
     toogleShowBooks() {
       this.showBooks = !this.showBooks;
+    },
+    handleEvent(e, data) {
+      console.log(e, e.type);
+      if (data) {
+        console.log(data);
+      }
+    },
+    handleMousemove(e) {
+      this.x = e.offsetX;
+      this.y = e.offsetY;
     },
   },
 });
